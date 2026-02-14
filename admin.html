@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - Manage your blog">
+    <title>Admin Dashboard - Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Admin Navigation -->
+    <nav class="navbar admin-nav">
+        <div class="container-fluid">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <span>B</span>
+                    </div>
+                    <span class="logo-text">Blog Admin</span>
+                </div>
+
+                <div class="admin-user-menu">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2" />
+                            <path
+                                d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="user-profile" id="userProfile">
+                        <img src="https://i.pravatar.cc/150?img=60" alt="Admin">
+                        <span class="user-name">Admin User</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M4 6l4 4 4-4" />
+                        </svg>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#profile">Profile Settings</a>
+                        <a href="#preferences">Preferences</a>
+                        <a href="index.html" class="logout-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-menu">
+                <a href="#dashboard" class="sidebar-link active">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="3" y="3" width="6" height="6" rx="2" stroke="currentColor" stroke-width="2" />
+                        <rect x="11" y="3" width="6" height="6" rx="2" stroke="currentColor" stroke-width="2" />
+                        <rect x="3" y="11" width="6" height="6" rx="2" stroke="currentColor" stroke-width="2" />
+                        <rect x="11" y="11" width="6" height="6" rx="2" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#posts" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 6h12M4 10h12M4 14h8" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span>All Posts</span>
+                </a>
+                <a href="#create" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span>Create Post</span>
+                </a>
+                <a href="#analytics" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 17V9M10 17V3M17 17v-6" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span>Analytics</span>
+                </a>
+                <a href="#comments" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 6a2 2 0 012-2h10a2 2 0 012 2v7a2 2 0 01-2 2H8l-4 3v-3a2 2 0 01-2-2V6z"
+                            stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span>Comments</span>
+                    <span class="badge">12</span>
+                </a>
+                <a href="#users" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M13 14c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM13 14c-2.761 0-5 1.343-5 3v1h10v-1c0-1.657-2.239-3-5-3zM7 8c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM7 8c-1.841 0-3.333.895-3.333 2v.667h6.666V10c0-1.105-1.492-2-3.333-2z"
+                            stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                    <span>Users</span>
+                </a>
+                <a href="#settings" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2" />
+                        <path d="M17 10a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3B82F6;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4.5v15m7.5-7.5h-15" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Total Posts</p>
+                        <h3 class="stat-value">248</h3>
+                        <p class="stat-change positive">+12% from last month</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2" />
+                            <path
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Total Views</p>
+                        <h3 class="stat-value">1.2M</h3>
+                        <p class="stat-change positive">+18% from last month</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Total Users</p>
+                        <h3 class="stat-value">8,456</h3>
+                        <p class="stat-change positive">+24% from last month</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Comments</p>
+                        <h3 class="stat-value">3,241</h3>
+                        <p class="stat-change negative">-5% from last month</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="admin-section">
+                <div class="section-header-admin">
+                    <h2>Quick Actions</h2>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-btn" id="createPostBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Create New Post
+                    </button>
+                    <button class="action-btn" id="manageUsersBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M13 14c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Manage Users
+                    </button>
+                    <button class="action-btn" id="viewAnalyticsBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 17V9M10 17V3M17 17v-6" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        View Analytics
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Posts Table -->
+            <div class="admin-section">
+                <div class="section-header-admin">
+                    <h2>Recent Posts</h2>
+                    <button class="btn-primary" id="newPostBtn">New Post</button>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Views</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="postsTableBody">
+                            <tr>
+                                <td>
+                                    <div class="post-title-cell">
+                                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=100&q=80"
+                                            alt="Post">
+                                        <span>The Future of AI in Modern Web Development</span>
+                                    </div>
+                                </td>
+                                <td>Sarah Jenkins</td>
+                                <td><span class="category-badge badge-technology">Technology</span></td>
+                                <td>12,458</td>
+                                <td><span class="status-badge status-published">Published</span></td>
+                                <td>Apr 18, 2025</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit-btn" title="Edit">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M11.333 2A1.886 1.886 0 0114 4.667l-9 9-3.667.666.667-3.666 9-9z"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon delete-btn" title="Delete">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M2 4h12M5.333 4V2.667a1.333 1.333 0 011.334-1.334h2.666a1.333 1.333 0 011.334 1.334V4m2 0v9.333a1.333 1.333 0 01-1.334 1.334H4.667a1.333 1.333 0 01-1.334-1.334V4h9.334z"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="post-title-cell">
+                                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=100&q=80"
+                                            alt="Post">
+                                        <span>Embracing Minimalism in UI Design</span>
+                                    </div>
+                                </td>
+                                <td>Ethan Brown</td>
+                                <td><span class="category-badge">Design</span></td>
+                                <td>8,234</td>
+                                <td><span class="status-badge status-published">Published</span></td>
+                                <td>Apr 15, 2025</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit-btn" title="Edit">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M11.333 2A1.886 1.886 0 0114 4.667l-9 9-3.667.666.667-3.666 9-9z"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon delete-btn" title="Delete">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M2 4h12M5.333 4V2.667a1.333 1.333 0 011.334-1.334h2.666a1.333 1.333 0 011.334 1.334V4m2 0v9.333a1.333 1.333 0 01-1.334 1.334H4.667a1.333 1.333 0 01-1.334-1.334V4h9.334z"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="post-title-cell">
+                                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=100&q=80"
+                                            alt="Post">
+                                        <span>Understanding React Server Components</span>
+                                    </div>
+                                </td>
+                                <td>Michael Rivera</td>
+                                <td><span class="category-badge badge-technology">Technology</span></td>
+                                <td>5,892</td>
+                                <td><span class="status-badge status-draft">Draft</span></td>
+                                <td>Apr 14, 2025</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit-btn" title="Edit">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M11.333 2A1.886 1.886 0 0114 4.667l-9 9-3.667.666.667-3.666 9-9z"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon delete-btn" title="Delete">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M2 4h12M5.333 4V2.667a1.333 1.333 0 011.334-1.334h2.666a1.333 1.333 0 011.334 1.334V4m2 0v9.333a1.333 1.333 0 01-1.334 1.334H4.667a1.333 1.333 0 01-1.334-1.334V4h9.334z"
+                                                    stroke="currentColor" stroke-width="1.5" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div class="modal" id="createPostModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Create New Post</h2>
+                <button class="modal-close" id="closePostModal">&times;</button>
+            </div>
+            <form class="post-form" id="postForm">
+                <div class="form-group">
+                    <label for="postTitle" class="form-label">Post Title</label>
+                    <input type="text" id="postTitle" class="form-input" placeholder="Enter post title" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postCategory" class="form-label">Category</label>
+                        <select id="postCategory" class="form-input" required>
+                            <option value="">Select category</option>
+                            <option value="technology">Technology</option>
+                            <option value="design">Design</option>
+                            <option value="business">Business</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="travel">Travel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="postStatus" class="form-label">Status</label>
+                        <select id="postStatus" class="form-input" required>
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postExcerpt" class="form-label">Excerpt</label>
+                    <textarea id="postExcerpt" class="form-input" rows="3"
+                        placeholder="Brief description of your post"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postContent" class="form-label">Content</label>
+                    <textarea id="postContent" class="form-input" rows="10"
+                        placeholder="Write your post content here..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postImage" class="form-label">Featured Image URL</label>
+                    <input type="url" id="postImage" class="form-input" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelPost">Cancel</button>
+                    <button type="submit" class="btn-primary">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Blog - A modern platform for designers, managers, and creators. Sharing best practices and strategic insights.">
+    <title>Blog - The Future of AI in Modern Web Development</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <span>B</span>
+                    </div>
+                    <span class="logo-text">Blog</span>
+                </div>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="#categories" class="nav-link">Categories</a>
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2" />
+                            <path
+                                d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="search-btn" id="searchBtn" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+                            <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <a href="login.html" class="btn-login" id="loginBtn">Log in</a>
+                    <a href="signup.html" class="btn-signup" id="signupBtn">Sign up</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <button class="search-close" id="searchClose">&times;</button>
+            <div class="search-input-wrapper">
+                <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+                    <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="text" placeholder="Search articles..." class="search-input" id="searchInput">
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">FEATURED STORY</span>
+                    <h1 class="hero-title">The Future of AI in Modern Web Development</h1>
+                    <p class="hero-description">Artificial intelligence isn't just a buzzword anymore—it's reshaping how
+                        we build, deploy, and interact with the web. Discover the tools behind the next decade.</p>
+                    <div class="hero-meta">
+                        <div class="author-info">
+                            <div class="author-avatar">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Sarah Jenkins">
+                            </div>
+                            <div class="author-details">
+                                <span class="author-name">Sarah Jenkins</span>
+                                <span class="publish-date">Apr 18, 2025 • 8 min read</span>
+                            </div>
+                        </div>
+                        <button class="btn-secondary" id="readFullStory">Read Full Story</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="ai-circle"></div>
+                        <div class="ai-text">AI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles Section -->
+    <section class="articles-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recent Articles</h2>
+                <p class="section-subtitle">Insights, thoughts, and basics from our team</p>
+                <a href="#" class="view-all-link" id="viewAllPosts">View all posts →</a>
+            </div>
+
+            <div class="articles-grid">
+                <!-- Article Card 1 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
+                            alt="Minimalist workspace">
+                        <span class="article-badge">Design</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">Embracing Minimalism in UI Design</h3>
+                        <p class="article-excerpt">Explore how a cleaner user interface can improve both user experience
+                            and engagement in modern web...</p>
+                        <div class="article-footer">
+                            <div class="article-author">
+                                <img src="https://i.pravatar.cc/150?img=33" alt="Ethan Brown">
+                                <span>Ethan Brown</span>
+                            </div>
+                            <span class="article-date">5 days ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80"
+                            alt="Workspace setup">
+                        <span class="article-badge badge-productivity">Productivity</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">10 Tips for Effective Remote Work</h3>
+                        <p class="article-excerpt">Staying productive when working from home can be challenging. Here
+                            are some strategies to help you stay...</p>
+                        <div class="article-footer">
+                            <div class="article-author">
+                                <img src="https://i.pravatar.cc/150?img=27" alt="Maya Chen">
+                                <span>Maya Chen</span>
+                            </div>
+                            <span class="article-date">1 week ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
+                            alt="Code on laptop">
+                        <span class="article-badge badge-technology">Technology</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">Understanding React Server Components</h3>
+                        <p class="article-excerpt">React Server Components are changing the way we build React
+                            applications. Here's what you need to know...</p>
+                        <div class="article-footer">
+                            <div class="article-author">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="Michael Rivera">
+                                <span>Michael Rivera</span>
+                            </div>
+                            <span class="article-date">1 week ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 4 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80"
+                            alt="Woman smiling">
+                        <span class="article-badge badge-lifestyle">Lifestyle</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">The Perfect Morning Routine</h3>
+                        <p class="article-excerpt">Start your day with purpose and energy using these simple yet
+                            powerful morning rituals for everything started...</p>
+                        <div class="article-footer">
+                            <div class="article-author">
+                                <img src="https://i.pravatar.cc/150?img=45" alt="Emma Jenkins">
+                                <span>Emma Jenkins</span>
+                            </div>
+                            <span class="article-date">2 weeks ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 5 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+                            alt="Ocean view">
+                        <span class="article-badge badge-travel">Travel</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">Digital Nomad Destinations 2024</h3>
+                        <p class="article-excerpt">Top 5 cities with the best internet speeds, coworking spaces, and
+                            cost of living for remote workers...</p>
+                        <div class="article-footer">
+                            <div class="article-author">
+                                <img src="https://i.pravatar.cc/150?img=14" alt="Jessica Li">
+                                <span>Jessica Li</span>
+                            </div>
+                            <span class="article-date">2 weeks ago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 6 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                            alt="Business meeting">
+                        <span class="article-badge badge-business">Business</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">Building a Resilient Culture</h3>
+                        <p class="article-excerpt">Why talent and strategy still matter, and how to build a truly
+                            resilient team culture...</p>
+                        <div class="article-footer">
+                            <div class="article-author">
+                                <img src="https://i.pravatar.cc/150?img=56" alt="David Kim">
+                                <span>David Kim</span>
+                            </div>
+                            <span class="article-date">3 weeks ago</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="load-more-wrapper">
+                <button class="btn-load-more" id="loadMoreBtn">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="48" height="48" rx="24" fill="#3B82F6" opacity="0.1" />
+                        <path d="M14 16L24 24L34 16M14 32H34V16H14V32Z" stroke="#3B82F6" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h2 class="newsletter-title">Stay in the loop</h2>
+                <p class="newsletter-description">Get our latest articles, tutorials, and insights delivered straight to
+                    your inbox. No spam, we promise.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" class="newsletter-input"
+                        id="newsletterEmail" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+                <p class="newsletter-privacy">We care about your data in our <a href="#privacy">privacy policy</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-brand">
+                    <div class="footer-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="4" fill="#3B82F6" />
+                            <path d="M8 12H16M12 8V16" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <span>Blog.</span>
+                    </div>
+                    <p class="footer-description">A modern publishing platform for designers, managers, and creators.
+                        Sharing best practices and strategic insights.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M20 10C20 4.477 15.523 0 10 0S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M18.335 0H1.665C.747 0 0 .747 0 1.665v16.67C0 19.253.747 20 1.665 20h16.67C19.253 20 20 19.253 20 18.335V1.665C20 .747 19.253 0 18.335 0zM5.946 17.03H2.973V7.5h2.973v9.53zM4.46 6.19a1.72 1.72 0 110-3.44 1.72 1.72 0 010 3.44zm12.57 10.84h-2.973v-4.64c0-1.107-.02-2.53-1.54-2.53-1.543 0-1.78 1.204-1.78 2.447v4.723H7.764V7.5h2.853v1.303h.04c.397-.753 1.367-1.547 2.814-1.547 3.01 0 3.567 1.98 3.567 4.557v5.217z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#design">Design</a></li>
+                        <li><a href="#lifestyle">Lifestyle</a></li>
+                        <li><a href="#business">Business</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blog Inc. All rights reserved.</p>
+                <a href="#login" class="back-to-login">Back to Login</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Create Post Modal (for logged-in users) -->
+    <div class="modal" id="createPostModalHome">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Create New Post</h2>
+                <button class="modal-close" id="closePostModalHome">&times;</button>
+            </div>
+            <form class="post-form" id="postFormHome">
+                <div class="form-group">
+                    <label for="postTitleHome" class="form-label">Post Title</label>
+                    <input type="text" id="postTitleHome" class="form-input" placeholder="Enter post title" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postCategoryHome" class="form-label">Category</label>
+                        <select id="postCategoryHome" class="form-input" required>
+                            <option value="">Select category</option>
+                            <option value="technology">Technology</option>
+                            <option value="design">Design</option>
+                            <option value="business">Business</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="travel">Travel</option>
+                            <option value="productivity">Productivity</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="postStatusHome" class="form-label">Status</label>
+                        <select id="postStatusHome" class="form-input" required>
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postExcerptHome" class="form-label">Excerpt</label>
+                    <textarea id="postExcerptHome" class="form-input" rows="3"
+                        placeholder="Brief description of your post"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postContentHome" class="form-label">Content</label>
+                    <textarea id="postContentHome" class="form-input" rows="10"
+                        placeholder="Write your post content here..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postImageHome" class="form-label">Featured Image URL</label>
+                    <input type="url" id="postImageHome" class="form-input" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelPostHome">Cancel</button>
+                    <button type="submit" class="btn-primary">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
